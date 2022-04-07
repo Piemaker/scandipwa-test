@@ -1,0 +1,117 @@
+.stepper-wrapper {
+  display: flex;
+  height: 100px;
+  background-color: $default-secondary-base-color;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  font-size: 1.25rem;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 6px solid #dbdbdb;
+  width: 100%;
+  top: 20px;
+  left: -50%;
+  z-index: 2;
+}
+
+// .stepper-item::after {
+//   position: absolute;
+//   content: "";
+//   border-bottom: 6px solid #dbdbdb;
+//   width: 100%;
+//   top: 20px;
+//   left: 50%;
+//   z-index: 2;
+// }
+
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #dbdbdb;
+  margin-bottom: 6px;
+}
+
+.stepper-item.active {
+  font-weight: 700;
+}
+
+.stepper-item.completed .step-counter {
+  background-color: $default-primary-base-color;
+}
+
+// .stepper-item.completed::after {
+//   position: absolute;
+//   content: "";
+//   border-bottom: 6px solid $default-primary-base-color;
+//   width: 100%;
+//   top: 20px;
+//   left: 50%;
+//   z-index: 3;
+// }
+.stepper-item.completed::before {
+  position: absolute;
+  content: "";
+  border-bottom: 6px solid $default-primary-base-color;
+  width: 100%;
+  top: 20px;
+  left: -50%;
+  z-index: 2;
+}
+.step-name {
+  color: $default-secondary-dark-color;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+.completed {
+  .step-name {
+    color: black;
+  }
+  .step-counter {
+    color: $default-secondary-light-color;
+  }
+}
+// .stepper-item:first-child::before {
+//   content: none;
+// }
+.stepper-item:last-child::after {
+  position: absolute;
+  content: "";
+  border-bottom: 6px solid #dbdbdb;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 3;
+}
+
+.stepper-item--last.completed::after {
+  position: absolute;
+  content: "";
+  border-bottom: 6px solid $default-primary-base-color;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 3;
+}
